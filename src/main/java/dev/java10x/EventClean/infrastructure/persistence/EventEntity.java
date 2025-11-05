@@ -1,0 +1,41 @@
+package dev.java10x.EventClean.infrastructure.persistence;
+
+import dev.java10x.EventClean.core.enums.EventType;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "events")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class EventEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nome;
+
+    private String descricao;
+
+    private String identificador;
+
+    private LocalDateTime data_inicio;
+
+    private LocalDateTime data_fim;
+
+    private String local_evento;
+
+    private String organizador;
+
+    private Integer capacidade;
+
+    @Enumerated(EnumType.STRING)
+    private EventType tipo;
+
+}
